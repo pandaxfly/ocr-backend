@@ -1,0 +1,17 @@
+{
+  "name": "tesseract-backend",
+  "version": "1.0.0",
+  "description": "tesseract backend using Cloud Functions",
+  "main": "index.js",
+  "scripts": {
+    "start": "GOOGLE_APPLICATION_CREDENTIALS=/Users/pandaxfly/Dropbox/DataScience/OCR-PROJECT/tesseract-ocr/dev-auth.json functions-framework --target=detectText",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-gcp": "gcloud functions deploy tesseract-backend-dev --allow-unauthenticated --trigger-http --runtime=nodejs12 --entry-point detectText --set-env-vars GOOGLE_APPLICATION_CREDENTIALS=./dev.json"
+  },
+  "author": "yuehao.pan92@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^1.7.1",
+    "@google-cloud/vision": "^2.3.1"
+  }
+}
